@@ -29,4 +29,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Scraper
       run: |
-        python3 scraper.py ${{ vars.REPO_URL }} --token ${{ vars.TOKEN }}
+        python3 scraper.py ${{ secrets.REPO_URL }} --token ${{ secrets.TOKEN }}
