@@ -8,6 +8,9 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
 
 permissions:
   contents: read
@@ -29,4 +32,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Scraper
       run: |
-        python3 scraper.py ${{ vars.REPO_URL}} --token ${{ vars.TOKEN}}
+        python3 scraper.py ${{ secrets.REPO_URL}} --token ${{ vars.TOKEN}}
